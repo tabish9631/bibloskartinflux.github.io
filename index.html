@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Influx Calculator</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <style>
+            *{margin: 0; padding: 0; box-sizing: border-box;
+                font-family: 'Josefin Sans', sans-serif;
+            }
+
+            main{
+                height: 100vh;
+                background-image: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            div{
+                max-width: 500px;
+                height: auto;
+                background-color: white;
+                padding: 50px;
+                box-shadow: 1px 1px 30px 1px #2d3436;
+            }
+
+            h2{
+                margin-bottom: 10px;
+                text-shadow: 1px 2px 1px white;
+                text-transform: capitalize;
+                
+            }
+
+            label{
+                display: block;
+                margin-top: 20px;
+                font-weight: bold;
+            }
+
+            input{
+                width: 400px;
+                padding: 10px 0;
+                border-radius: 5px;
+                font-size: 1.2rem;
+                
+                
+            }
+            input::-webkit-inner-spin-button,
+            input::-webkit-outer-spin-button{
+                -webkit-appearance: none;
+            }
+
+
+            button{
+                border-radius: 10px;
+                padding: 15px 30px;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                border: none;
+                color: white;
+                background: #ff7222;
+                box-shadow: 1px 1px 5px 1px #2d3436;
+                margin-top: 20px;
+            
+            }
+            .para{
+                margin-top: 15px;
+                font-weight: bold;
+            }
+
+            .para1{
+                margin-top: 0px;
+                font-weight: bold;
+            }
+
+            .subs{
+                margin-top: 15px;
+                font-weight: bold;
+                
+            }
+
+            h1{
+                margin-bottom: 10px;
+                color: #ff7222;
+            }
+            
+
+
+          
+        </style>
+    </head>
+    <body>
+        
+        <main>
+            
+            </div>
+            <h1>BIBLOSKART INFLUX</h1>
+            <h2>Calculate Plan For Your Organization</h2>
+            <div>
+                
+                <label>Number of Book/s at The Time Of Delivery</label>
+                <input type="number" name="" id="NoOfBook" required>
+                <br>
+
+                <label>Number of Month/s</label>
+                <input type="number" name="" id="noOfMonth" required>
+                <br>
+
+                <label>Subscription Amount &#8377</label>
+                <input type="number" name="" id="subAmount" disabled>
+                <br>
+
+                <label>Deposit Amount &#8377</label>
+                <input type="number" name="" id="depAmount" disabled>
+                <br>
+
+                <label>Total Amount &#8377</label>
+                <input type="number" name="" id="totAmount" disabled>
+                <br>
+
+                <label>Refundable &#8377</label>
+                <input type="number" name="" id="refAmount" disabled>
+                <br>
+
+                <button onclick="tipcalcy()"> calculate</button>
+                <br>
+                <p class="para" id="para"></p>
+                <br>
+                <p class="para1" id="para1"></p>
+
+
+            </div>
+
+            <p class="subs">If you want to subscribe to the Bibloskart organizational influx subscription <a href="https://forms.gle/ioURjy2mhPGdEZkZ7" target="_blank">click here</a></p>
+            <p class="howIts">If you want to know how it works then<a href="https://drive.google.com/file/d/1iyHgc9d5miJBcmjnwxU0pZCewGjlOdH5/view?usp=sharing" target="_blank">click here</a></p>
+            <p><a href="https://drive.google.com/file/d/1Hh_zvg6us6kcONLQ0jrrbzi8xBx73LhB/view?usp=sharing" target="_blank">Terms & Conditions</a></p>
+        </main>
+        <script>
+            const tipcalcy = () => {
+                let bookNo = document.getElementById('NoOfBook').value;
+                let month = document.getElementById('noOfMonth').value;
+
+                let deppUnit = 200;
+                let subPerUnit = 80;
+                let percentDiscount = 2;
+                let finalsubResult;
+
+
+                let depositResult = Number(bookNo) * deppUnit;
+                let subscriptionResult = Number(bookNo)*Number(month);
+
+               if (month==1){
+                finalsubResult= subscriptionResult * subPerUnit;
+               }    
+               else{
+
+                let discount = percentDiscount * (month - 1);
+                let hundre = Number (100) - Number(discount);
+                let subs = subscriptionResult * subPerUnit
+                finalsubResult = hundre * (subs / 100);
+                
+
+               }
+                              
+
+                
+                
+                let refresult = depositResult;
+                let totResult = finalsubResult + depositResult;
+
+                document.getElementById('depAmount').value=depositResult;
+                document.getElementById('subAmount').value= Math.ceil(finalsubResult);
+                document.getElementById('refAmount').value=refresult;
+                document.getElementById('totAmount').value=Math.ceil(totResult);
+                document.getElementById('para').innerHTML= "Total no.of books you can read: Unlimited";
+                document.getElementById('para1').innerHTML= "Total no.of books you can take at a time: " + bookNo;
+
+                
+
+
+               
+            
+
+
+
+            }
+        </script>
+    </body>
+    
+</html>
