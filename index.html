@@ -67,11 +67,13 @@
             .para{
                 margin-top: 15px;
                 font-weight: bold;
+                color: red;
             }
 
             .para1{
                 margin-top: 0px;
                 font-weight: bold;
+                color: red;
             }
 
             .subs{
@@ -106,7 +108,8 @@
                 <label>Number of Month/s</label>
                 <input type="number" name="" id="noOfMonth" required>
                 <br>
-
+                <button onclick="tipcalcy()"> calculate</button>
+                <br>
                 <label>Subscription Amount &#8377</label>
                 <input type="number" name="" id="subAmount" disabled>
                 <br>
@@ -123,8 +126,6 @@
                 <input type="number" name="" id="refAmount" disabled>
                 <br>
 
-                <button onclick="tipcalcy()"> calculate</button>
-                <br>
                 <p class="para" id="para"></p>
                 <br>
                 <p class="para1" id="para1"></p>
@@ -133,7 +134,7 @@
             </div>
 
             <p class="subs">If you want to subscribe to the Bibloskart organizational influx subscription <a href="https://forms.gle/ioURjy2mhPGdEZkZ7" target="_blank">click here</a></p>
-            <p class="howIts">If you want to know how it works then<a href="https://drive.google.com/file/d/1iyHgc9d5miJBcmjnwxU0pZCewGjlOdH5/view?usp=sharing" target="_blank">click here</a></p>
+            <p class="howIts">If you want to know how it works then <a href="https://drive.google.com/file/d/1iyHgc9d5miJBcmjnwxU0pZCewGjlOdH5/view?usp=sharing" target="_blank">click here</a></p>
             <p><a href="https://drive.google.com/file/d/1Hh_zvg6us6kcONLQ0jrrbzi8xBx73LhB/view?usp=sharing" target="_blank">Terms & Conditions</a></p>
         </main>
         <script>
@@ -143,25 +144,79 @@
 
                 let deppUnit = 200;
                 let subPerUnit = 80;
-                let percentDiscount = 2;
                 let finalsubResult;
-
-
+                let bookcost;
                 let depositResult = Number(bookNo) * deppUnit;
                 let subscriptionResult = Number(bookNo)*Number(month);
 
                if (month==1){
                 finalsubResult= subscriptionResult * subPerUnit;
                }    
-               else{
+               else if(month == 2){
 
-                let discount = percentDiscount * (month - 1);
-                let hundre = Number (100) - Number(discount);
-                let subs = subscriptionResult * subPerUnit
-                finalsubResult = hundre * (subs / 100);
-                
+                bookcost = (subscriptionResult * subPerUnit) / 100 ;
+                finalsubResult = bookcost * 98;
 
                }
+               else if(month == 3){
+
+                bookcost = (subscriptionResult * subPerUnit) / 100 ;
+                finalsubResult = bookcost * 96;
+
+                }
+                else if(month == 4){
+
+                    bookcost = (subscriptionResult * subPerUnit) / 100 ;
+                    finalsubResult = bookcost * 94;
+
+                }
+                else if(month == 5){
+
+                    bookcost = (subscriptionResult * subPerUnit) / 100 ;
+                    finalsubResult = bookcost * 92;
+
+                }
+                else if(month == 6){
+
+                    bookcost = (subscriptionResult * subPerUnit) / 100 ;
+                    finalsubResult = bookcost * 90;
+
+                }
+                else if(month == 7){
+
+                    bookcost = (subscriptionResult * subPerUnit) / 100 ;
+                    finalsubResult = bookcost * 88;
+
+                }
+                else if(month == 8){
+
+                    bookcost = (subscriptionResult * subPerUnit) / 100 ;
+                    finalsubResult = bookcost * 86;
+
+                }
+                else if(month == 9){
+
+                    bookcost = (subscriptionResult * subPerUnit) / 100 ;
+                    finalsubResult = bookcost * 84;
+
+                }
+                else if(month == 10){
+
+                    bookcost = (subscriptionResult * subPerUnit) / 100 ;
+                    finalsubResult = bookcost * 82;
+
+                }
+                else if(month == 11){
+
+                    bookcost = (subscriptionResult * subPerUnit) / 100 ;
+                    finalsubResult = bookcost * 80;
+
+                }else {
+
+                    bookcost = (subscriptionResult * subPerUnit) / 100 ;
+                    finalsubResult = bookcost * 78;
+
+                }
                               
 
                 
